@@ -143,9 +143,19 @@ function escapeHtml(str) {
 }
 
 // タイムスタンプのフォーマット
-function smdyAgo(timestamp){
+function smhdmyAgo(timestamp){
     const now = new Data();
     const diff  = timestamp - now;
+
+    const diffs = math.floor(diff/1000);
+    const diffm = math.floor(diffs/60);
+    const dissh = math.floor(diffm/60);
+    const diffd = math.floor(diffh/24);
+    const diffmo = math.floor(diffd/30);
+    const diffy = math.floor(diffmo/12);
+    
+
+
 }
 
 // 投稿の編集権限チェック
