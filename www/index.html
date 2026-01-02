@@ -156,6 +156,10 @@ function smhdmyAgo(timestamp){
 
     if(diffs<60){
         return '${diffs}秒前';
+    }else if(diffm<60){
+        return '${diffm}分前';
+    }else if(diffh<24){
+        return '${diffh}時間前';
     }
 
     
