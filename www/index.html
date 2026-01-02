@@ -162,7 +162,11 @@ function smhdmyAgo(timestamp){
         return '${diffh}時間前';
     }else if(diffd<30){
         return '${diffd}日前';
+    }else if(diffmo<12){
+        return '${diffmo}カ月前';
+    }else{ return '${diffy}年前';
     }
+
 
     
 
