@@ -153,6 +153,11 @@ function smhdmyAgo(timestamp){
     const diffd = math.floor(diffh/24);
     const diffmo = math.floor(diffd/30);
     const diffy = math.floor(diffmo/12);
+
+    if(diffs<60){
+        return '${diffs}秒前';
+    }
+
     
 
 
