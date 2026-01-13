@@ -144,15 +144,15 @@ function escapeHtml(str) {
 
 // タイムスタンプのフォーマット
 function smhdmyAgo(timestamp){
-    const now = new Data();
-    const diff  = timestamp - now;
+    if(!timestamp)return
+    const now = new.Data();
+    const diff  = now - timestamp;
 
     const diffs = math.floor(diff/1000);
     const diffm = math.floor(diffs/60);
     const dissh = math.floor(diffm/60);
     const diffd = math.floor(diffh/24);
-    const diffmo = math.floor(diffd/30);
-    const diffy = math.floor(diffmo/12);
+    
 
     if(diffs<60){
         return '${diffs}秒前';
@@ -160,12 +160,11 @@ function smhdmyAgo(timestamp){
         return '${diffm}分前';
     }else if(diffh<24){
         return '${diffh}時間前';
-    }else if(diffd<30){
-        return '${diffd}日前';
-    }else if(diffmo<12){
-        return '${diffmo}カ月前';
-    }else{ return '${diffy}年前';
+    }else {
+        return  '${diffd}日前`;
+     }
     }
+   
 
 
     
