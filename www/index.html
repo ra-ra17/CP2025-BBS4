@@ -142,35 +142,30 @@ function escapeHtml(str) {
         .replace(/'/g, '&#039;');
 }
 
-// タイムスタンプのフォーマット
-function timeAgo(timestamp){
-    if(!timestamp)return ' ';
-    const now = new.Data();
-    const diff  = now - timestamp;
 
-    const diffs = math.floor(diff/1000);
-    const diffm = math.floor(diffs/60);
-    const dissh = math.floor(diffm/60);
-    const diffd = math.floor(diffh/24);
-    
+   // タイムスタンプのフォーマット
+function timeAgo(timestamp) {
+    if (!timestamp) return '';
 
-    if(diffs<60){
-        return '${diffs}秒前';
-    }else if(diffm<60){
-        return '${diffm}分前';
-    }else if(diffh<24){
-        return '${diffh}時間前';
-    }else {
-        return  '${diffd}日前`;
-     }
+    const now = Date.now();
+    const diffMs = now - timestamp;
+
+    const sec = Math.floor(diffMs / 1000);
+    const min = Math.floor(sec / 60);
+    const hour = Math.floor(min / 60);
+    const day = Math.floor(hour / 24);
+
+    if (sec < 60) {
+        return `${sec}秒前`;
+    } else if (min < 60) {
+        return `${min}分前`;
+    } else if (hour < 24) {
+        return `${hour}時間前`;
+    } else {
+        return `${day}日前`;
     }
-   
-
-
-    
-
-
 }
+
 
 // 投稿の編集権限チェック
 function canEditPost(post) {
