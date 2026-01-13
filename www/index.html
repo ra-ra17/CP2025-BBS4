@@ -143,8 +143,8 @@ function escapeHtml(str) {
 }
 
 // タイムスタンプのフォーマット
-function smhdmyAgo(timestamp){
-    if(!timestamp)return
+function timeAgo(timestamp){
+    if(!timestamp)return ' ';
     const now = new.Data();
     const diff  = now - timestamp;
 
@@ -215,11 +215,11 @@ function createPostElement(post) {
             </div>
             <div class="post-footer">
                 <span class="post-time">
-                    ${formatTimestamp(post.timestamp)}
+                     ${timeAgo(post.timestamp)}
                 </span>
                 ${post.updatedAt ? `
                     <span class="post-updated">
-                        (編集済み: ${formatTimestamp(post.updatedAt)})
+                        (編集済み:${timeAgo(post.updatedAt)})
                     </span>
                 ` : ''}
             </div>
